@@ -32,6 +32,9 @@ class CountdownControl(UserControl):
 
 
 def main(page: Page):
+    page.vertical_alignment = "center"
+    page.horizontal_alignment = "center"
+
     page.add(
         CountdownControl(120),
         CountdownControl(300)
