@@ -10,3 +10,5 @@
 ### Bundling to one file
 - pyinstaller your_program.py --noconsole --noconfirm --onefile
 
+### Customizing package icon
+- pyinstaller your_program.py --noconsole --noconfirm --onefile --icon <your-image.png>
