@@ -9,7 +9,7 @@ class CountdownControl(UserControl):
     def __init__(self, seconds):
         super().__init__()
         self.seconds = seconds
-        self.countdown = Text()
+        self.countdown = Text(size=40)
         self.running = True
         self.th = threading.Thread(target=self.update_timer, args=(), daemon=True)
 
