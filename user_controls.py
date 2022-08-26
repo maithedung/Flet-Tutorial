@@ -3,19 +3,26 @@ from flet import Page, UserControl, Text, Row, ElevatedButton
 
 
 class GreeterControl(UserControl):
+    def __init__(self, text='Hello!'):
+        super().__init__()
+        self.text = Text(text)
+
     def build(self):
-        return Text("Hello!")
+        return self.text
 
 
 class CounterControl(UserControl):
+    def __init__(self, initial_count=0):
+        super().__init__()
+        self.counter = initial_count
+        self.text = Text(str(self.counter))
+
     def add_click(self, e):
         self.counter += 1
         self.text.value = str(self.counter)
         self.update()
 
     def build(self):
-        self.counter = 0
-        self.text = Text(str(self.counter))
         return Row(
             [
                 self.text,
@@ -29,10 +36,10 @@ class CounterControl(UserControl):
 
 def main(page: Page):
     page.add(
-        GreeterControl(),
-        CounterControl(),
-        CounterControl(),
-        GreeterControl()
+        GreeterControl('Start'),
+        CounterControl(100),
+        CounterControl(500),
+        GreeterControl('End')
     )
 
 
